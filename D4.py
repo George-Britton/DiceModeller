@@ -4,7 +4,7 @@ import bpy
 from math import radians
 
 def stamp():
-    obj = bpy.context.scene.objects["Solid"]
+    obj = bpy.context.scene.objects["d4"]
     bpy.data.objects['Text'].select_set(False)
     obj.select_set(True)
     bpy.context.view_layer.objects.active = obj
@@ -14,7 +14,7 @@ def stamp():
 
 def deleteNum():
     obj = bpy.context.scene.objects["Text"]
-    bpy.data.objects['Solid'].select_set(False)
+    bpy.data.objects['d4'].select_set(False)
     obj.select_set(True)
     bpy.context.view_layer.objects.active = obj
     bpy.ops.object.delete()
@@ -40,7 +40,7 @@ def make4():
     num.location = [0, 7, 5]
     stamp()
     #4.2
-    d4 = bpy.context.scene.objects["Solid"]
+    d4 = bpy.context.scene.objects["d4"]
     d4.rotation_euler[0] = radians(-19.47)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     d4.rotation_euler[1] = radians(120)
@@ -81,7 +81,7 @@ def make3():
     num.location = [0, 7, 5]
     stamp()
     #3.2
-    d4 = bpy.context.scene.objects["Solid"]
+    d4 = bpy.context.scene.objects["d4"]
     d4.rotation_euler[0] = radians(-19.47)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     d4.rotation_euler[1] = radians(120)
@@ -122,7 +122,7 @@ def make2():
     num.location = [0, 7, 5]
     stamp()
     #2.2
-    d4 = bpy.context.scene.objects["Solid"]
+    d4 = bpy.context.scene.objects["d4"]
     d4.rotation_euler[0] = radians(-19.47)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     d4.rotation_euler[1] = radians(120)
@@ -167,10 +167,10 @@ def make1():
     num.scale = [8, 8, 0.05]
     bpy.ops.object.origin_set(type='ORIGIN_CENTER_OF_VOLUME', center='MEDIAN')
     num.location = [0, 7, 5]
-    bpy.data.objects["Solid"].select_set(True)
+    bpy.data.objects["d4"].select_set(True)
     stamp()
     #1.2
-    d4 = bpy.context.scene.objects["Solid"]
+    d4 = bpy.context.scene.objects["d4"]
     d4.rotation_euler[0] = radians(-19.47)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     d4.rotation_euler[1] = radians(120)
@@ -191,6 +191,7 @@ def make1():
 def makeD4():
     bpy.ops.mesh.primitive_solid_add()
     d4 = bpy.context.active_object
+    d4.name = "d4"
     #scale
     d4.dimensions[2] = 20
     d4.scale[0] = d4.scale[2]
