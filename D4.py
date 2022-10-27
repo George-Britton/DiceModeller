@@ -32,7 +32,7 @@ def deleteNum():
     bpy.context.view_layer.objects.active = obj
     bpy.ops.object.delete()
 
-def makeNum(number):
+def makeNum(number, font):
     bpy.ops.object.text_add(enter_editmode=False, align='WORLD', location=(0, 0, 0), scale=(1, 1, 1))
     num = bpy.context.active_object
     bpy.ops.object.editmode_toggle()
@@ -54,7 +54,7 @@ def makeNum(number):
 
 def make4(font):
     #4.1
-    num = makeNum(4)
+    num = makeNum(4, font)
     num.location = [0, 7, 5]
     stamp()
     #4.2
@@ -80,7 +80,7 @@ def make4(font):
 
 def make3(font):
     #3.1
-    num = makeNum(3)
+    num = makeNum(3, font)
     num.location = [0, 7, 5]
     stamp()
     #3.2
@@ -106,7 +106,7 @@ def make3(font):
 
 def make2(font):
     #2.1
-    num = makeNum(2)
+    num = makeNum(2, font)
     num.location = [0, 7, 5]
     stamp()
     #2.2
@@ -138,7 +138,7 @@ def make2(font):
 
 def make1(font):
     #1.1
-    num = makeNum(1)
+    num = makeNum(1, font)
     num.location = [0, 7, 5]
     bpy.data.objects["die"].select_set(True)
     stamp()
