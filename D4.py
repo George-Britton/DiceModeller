@@ -1,7 +1,20 @@
 #D4
-#d4.transform_apply(location=False, rotation=True, scale=False)
 import bpy
 from math import radians
+
+def pathify(path, name):
+    splitFilepath = path.split("\\")
+    newFilepath = ""
+    if len(splitFilepath) > 1:
+        for i in splitFilepath:
+            newFilepath += i + "/"
+    else:
+        newFilepath = splitFilepath[0] + "/"
+    if newFilepath[-1] == "/" and newFilepath[-2] == "/":
+        newFilepath = newFilepath[0:-1]
+    newFilepath += name
+    return newFilepath
+    
 
 def stamp():
     obj = bpy.context.scene.objects["d4"]
@@ -19,7 +32,7 @@ def deleteNum():
     bpy.context.view_layer.objects.active = obj
     bpy.ops.object.delete()
 
-def make4():
+def make4(font):
     #4.1
     bpy.ops.object.text_add(enter_editmode=False, align='WORLD', location=(0, 0, 0), scale=(1, 1, 1))
     num = bpy.context.active_object
@@ -30,6 +43,7 @@ def make4():
     bpy.ops.font.delete(type='PREVIOUS_OR_SELECTION')
     bpy.ops.font.text_insert(text="4")
     bpy.ops.object.editmode_toggle()
+    bpy.data.objects["Text"].data.font = bpy.data.fonts.load(font)
     bpy.ops.object.convert(target='MESH')
     bpy.ops.object.editmode_toggle()
     bpy.ops.mesh.select_all(action="SELECT")
@@ -60,7 +74,7 @@ def make4():
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     deleteNum()
 
-def make3():
+def make3(font):
     #3.1
     bpy.ops.object.text_add(enter_editmode=False, align='WORLD', location=(0, 0, 0), scale=(1, 1, 1))
     num = bpy.context.active_object
@@ -71,6 +85,7 @@ def make3():
     bpy.ops.font.delete(type='PREVIOUS_OR_SELECTION')
     bpy.ops.font.text_insert(text="3")
     bpy.ops.object.editmode_toggle()
+    bpy.data.objects["Text"].data.font = bpy.data.fonts.load(font)
     bpy.ops.object.convert(target='MESH')
     bpy.ops.object.editmode_toggle()
     bpy.ops.mesh.select_all(action="SELECT")
@@ -101,7 +116,7 @@ def make3():
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     deleteNum()
 
-def make2():
+def make2(font):
     #2.1
     bpy.ops.object.text_add(enter_editmode=False, align='WORLD', location=(0, 0, 0), scale=(1, 1, 1))
     num = bpy.context.active_object
@@ -112,6 +127,7 @@ def make2():
     bpy.ops.font.delete(type='PREVIOUS_OR_SELECTION')
     bpy.ops.font.text_insert(text="2")
     bpy.ops.object.editmode_toggle()
+    bpy.data.objects["Text"].data.font = bpy.data.fonts.load(font)
     bpy.ops.object.convert(target='MESH')
     bpy.ops.object.editmode_toggle()
     bpy.ops.mesh.select_all(action="SELECT")
@@ -148,7 +164,7 @@ def make2():
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     deleteNum()
 
-def make1():
+def make1(font):
     #1.1
     bpy.ops.object.text_add(enter_editmode=False, align='WORLD', location=(0, 0, 0), scale=(1, 1, 1))
     num = bpy.context.active_object
@@ -159,6 +175,7 @@ def make1():
     bpy.ops.font.delete(type='PREVIOUS_OR_SELECTION')
     bpy.ops.font.text_insert(text="1")
     bpy.ops.object.editmode_toggle()
+    bpy.data.objects["Text"].data.font = bpy.data.fonts.load(font)
     bpy.ops.object.convert(target='MESH')
     bpy.ops.object.editmode_toggle()
     bpy.ops.mesh.select_all(action="SELECT")
@@ -188,7 +205,7 @@ def make1():
     stamp()
     deleteNum()
 
-def makeD4():
+def makeD4(font):
     bpy.ops.mesh.primitive_solid_add()
     d4 = bpy.context.active_object
     d4.name = "d4"
@@ -202,10 +219,16 @@ def makeD4():
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     d4.rotation_euler[1] = radians(180)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    make4()
-    make3()
-    make2()
-    make1()
+    make4(font)
+    make3(font)
+    make2(font)
+    make1(font)
 
 if __name__ == "__main__":
-    makeD4();
+    # Edit these to change font and destination
+    sysFontFolderPath = "C:/Windows/Fonts"
+    chosenFont = "arial.ttf"
+    font = pathify(sysFontFolderPath, chosenFont)
+    destinationFolder = "G:/George/Documents/3D Prints/STL/DICE/Auto-Generated"
+    makeD4(font)
+    bpy.ops.export_mesh.stl(filepath=pathify(destinationFolder, "D4_" + chosenFont.split(".")[0] + ".stl"))
