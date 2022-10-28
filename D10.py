@@ -1,6 +1,7 @@
 #D10
 import bpy
 from math import radians
+bpy.ops.preferences.addon_enable(module="add_mesh_extra_objects")
 
 def pathify(path, name):
     splitFilepath = path.split("\\")
