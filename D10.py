@@ -1,4 +1,4 @@
-#D4
+#D10
 import bpy
 from math import radians
 
@@ -49,141 +49,130 @@ def makeNum(number, font):
     bpy.ops.object.editmode_toggle()
     num.scale = [8, 8, 0.05]
     bpy.ops.object.origin_set(type='ORIGIN_CENTER_OF_VOLUME', center='MEDIAN')
+    num.location = [0, -1.5, 9]
     return num
 
-def make4(font):
-    #4.1
-    num = makeNum(4, font)
-    num.location = [0, 7, 5]
-    stamp()
-    #4.2
-    die = bpy.context.scene.objects["die"]
-    die.rotation_euler[0] = radians(-19.47)
-    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    die.rotation_euler[1] = radians(120)
-    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    die.rotation_euler[0] = radians(19.47)
-    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    stamp()
-    #4.3
-    die.rotation_euler[0] = radians(-19.47)
-    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    die.rotation_euler[1] = radians(120)
-    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    die.rotation_euler[0] = radians(19.47)
-    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    stamp()
-    die.rotation_euler[2] = radians(120)
-    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    deleteNum()
-
-def make3(font):
-    #3.1
-    num = makeNum(3, font)
-    num.location = [0, 7, 5]
-    stamp()
-    #3.2
-    die = bpy.context.scene.objects["die"]
-    die.rotation_euler[0] = radians(-19.47)
-    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    die.rotation_euler[1] = radians(120)
-    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    die.rotation_euler[0] = radians(19.47)
-    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    stamp()
-    #3.3
-    die.rotation_euler[0] = radians(-19.47)
-    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    die.rotation_euler[1] = radians(120)
-    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    die.rotation_euler[0] = radians(19.47)
-    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    stamp()
-    die.rotation_euler[2] = radians(-120)
-    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    deleteNum()
-
-def make2(font):
-    #2.1
-    num = makeNum(2, font)
-    num.location = [0, 7, 5]
-    stamp()
-    #2.2
-    die = bpy.context.scene.objects["die"]
-    die.rotation_euler[0] = radians(-19.47)
-    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    die.rotation_euler[1] = radians(120)
-    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    die.rotation_euler[0] = radians(19.47)
-    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    stamp()
-    #2.3
-    die.rotation_euler[0] = radians(-19.47)
-    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    die.rotation_euler[1] = radians(120)
-    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    die.rotation_euler[0] = radians(19.47)
-    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    stamp()
-    die.rotation_euler[0] = radians(-19.47)
-    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    die.rotation_euler[1] = radians(120)
-    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    die.rotation_euler[0] = radians(19.47)
-    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    die.rotation_euler[2] = radians(-120)
-    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    deleteNum()
-
-def make1(font):
-    #1.1
-    num = makeNum(1, font)
-    num.location = [0, 7, 5]
+def make(digit, font):
+    num = makeNum(digit, font)
+    if digit == "_":
+        num.location[1] -= 3
     bpy.data.objects["die"].select_set(True)
     stamp()
-    #1.2
-    die = bpy.context.scene.objects["die"]
-    die.rotation_euler[0] = radians(-19.47)
-    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    die.rotation_euler[1] = radians(120)
-    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    die.rotation_euler[0] = radians(19.47)
-    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    stamp()
-    #1.3
-    die.rotation_euler[0] = radians(-19.47)
-    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    die.rotation_euler[1] = radians(120)
-    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    die.rotation_euler[0] = radians(19.47)
-    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    stamp()
     deleteNum()
 
-def makeD4(fontFolder, fontName, outputFolder):
-    bpy.ops.mesh.primitive_solid_add()
-    die = bpy.context.active_object
-    die.name = "die"
+def makeShape():
+    bpy.ops.mesh.primitive_cone_add(vertices=5, radius1=2, radius2=0, depth=2.25, enter_editmode=False, align='WORLD', location=(0, 0, 0), scale=(1, 1, 1))
+    die1 = bpy.context.active_object
+    die1.name = "intersect"
+    bpy.ops.mesh.primitive_cone_add(vertices=5, radius1=2, radius2=0, depth=2.25, enter_editmode=False, align='WORLD', location=(0, 0, 0), scale=(1, 1, 1))
+    die2 = bpy.context.active_object
+    die2.name = "die"
+    die1.rotation_euler[0] = radians(180)
+    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
+    bpy.ops.object.modifier_add(type='BOOLEAN')
+    bpy.context.object.modifiers["Boolean"].operation = 'INTERSECT'
+    bpy.context.object.modifiers["Boolean"].object = bpy.data.objects[die1.name]
+    bpy.ops.object.modifier_apply(modifier="Boolean")
+    obj = bpy.context.scene.objects["intersect"]
+    bpy.data.objects['die'].select_set(False)
+    obj.select_set(True)
+    bpy.context.view_layer.objects.active = obj
+    bpy.ops.object.delete()
+    bpy.data.objects['die'].select_set(True)
+    return die2
+
+def makeD10(fontFolder, fontName, outputFolder):
+    die = makeShape()
+    die.rotation_euler[0] = radians(-54.3)
+    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     #scale
-    die.dimensions[2] = 20
+    die.dimensions[2] = 17
     die.scale[0] = die.scale[2]
     die.scale[1] = die.scale[2]
-    bpy.ops.object.transform_apply(location=False, rotation=False, scale=True)
-    #rotate for initial numbering
-    die.rotation_euler[2] = radians(-30)
-    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    die.rotation_euler[1] = radians(180)
-    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     font = pathify(fontFolder, fontName)
-    make4(font)
-    make3(font)
-    make2(font)
-    make1(font)
-    bpy.ops.export_mesh.stl(filepath=pathify(outputFolder, "D4_" + fontName.split(".")[0] + ".stl"))
+    make(6, font)
+    make("_", font)
+    die.select_set(True)
+    die.rotation_euler[0] = radians(-35.7)
+    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
+    die.rotation_euler[1] = radians(-72)
+    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
+    die.rotation_euler[0] = radians(35.7)
+    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
+    make(4, font)
+    die.select_set(True)
+    die.rotation_euler[0] = radians(-35.7)
+    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
+    die.rotation_euler[1] = radians(-72)
+    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
+    die.rotation_euler[0] = radians(35.7)
+    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
+    make(8, font)
+    die.select_set(True)
+    die.rotation_euler[0] = radians(-35.7)
+    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
+    die.rotation_euler[1] = radians(-72)
+    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
+    die.rotation_euler[0] = radians(35.7)
+    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
+    make(2, font)
+    die.select_set(True)
+    die.rotation_euler[0] = radians(-35.7)
+    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
+    die.rotation_euler[1] = radians(-72)
+    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
+    die.rotation_euler[0] = radians(35.7)
+    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
+    make(0, font)
+    die.select_set(True)
+    die.rotation_euler[0] = radians(180)
+    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
+    die.rotation_euler[0] = radians(-35.7)
+    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
+    die.rotation_euler[1] = radians(-72)
+    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
+    die.rotation_euler[0] = radians(35.7)
+    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
+    make(1, font)
+    die.select_set(True)
+    die.rotation_euler[0] = radians(-35.7)
+    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
+    die.rotation_euler[1] = radians(-72)
+    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
+    die.rotation_euler[0] = radians(35.7)
+    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
+    make(9, font)
+    make("_", font)
+    die.select_set(True)
+    die.rotation_euler[0] = radians(-35.7)
+    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
+    die.rotation_euler[1] = radians(-72)
+    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
+    die.rotation_euler[0] = radians(35.7)
+    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
+    make(3, font)
+    die.select_set(True)
+    die.rotation_euler[0] = radians(-35.7)
+    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
+    die.rotation_euler[1] = radians(-72)
+    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
+    die.rotation_euler[0] = radians(35.7)
+    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
+    make(7, font)
+    die.select_set(True)
+    die.rotation_euler[0] = radians(-35.7)
+    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
+    die.rotation_euler[1] = radians(-72)
+    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
+    die.rotation_euler[0] = radians(35.7)
+    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
+    make(5, font)
+    die.select_set(True)
+    bpy.ops.export_mesh.stl(filepath=pathify(outputFolder, "D10_" + fontName.split(".")[0] + ".stl"))
 
 if __name__ == "__main__":
     # Edit these to change font and destination
     systemFontFolderPath = "C:/Windows/Fonts"
     chosenFontNameAndExtension = "arial.ttf"
     outputDestinationFolder = "G:/George/Documents/3D Prints/STL/DICE/Auto-Generated"
-    makeD4(systemFontFolderPath, chosenFontNameAndExtension, outputDestinationFolder)
+    makeD10(systemFontFolderPath, chosenFontNameAndExtension, outputDestinationFolder)
