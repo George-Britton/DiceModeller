@@ -133,5 +133,5 @@ if __name__ == "__main__":
     # Edit these to change font and destination
     systemFontFolderPath = "C:/Windows/Fonts"
     chosenFontNameAndExtension = "arial.ttf"
-    outputDestinationFolder = "C:/Documents/"
+    outputDestinationFolder = "G:/George/Documents/3D Prints/STL/DICE/Auto-Generated"
     makeD6(systemFontFolderPath, chosenFontNameAndExtension, outputDestinationFolder)
