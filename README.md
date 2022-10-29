@@ -32,3 +32,10 @@ Depending on your operating system, you may want to change the value of `systemF
 The font you want to use for the numbers should be the value of `chosenFontNameAndExtension`. Make sure you use the correct file extension - they're not all .TTF files.
 
 Wherever you want to output your models, set the filepath as the value of `outputDestinationFolder`. It's important that the folder exists before you run the script, as you'll get an error saying the filepath doesn't exist otherwise.
+
+----- 
+ ## Common Issues
+ 
+ - **Invalid Path**: Make sure whatever paths you put in the `systemFontFolderPath` and `outputDestinationFolder` are correct. If you use a backslash ('\\'), make sure to use two in order to escape the string escape character. Or just use a forward slash, like in the example paths.
+ - **Font Doesn't Exist**: The chosen font set in `chosenFontNameAndExtension` must have the exact same value, i.e. the exact same capitalisation and file extension.
+ - **Generated Die is Just Floating Numbers / Has Embossed Numbers**: This error is usually caused by the chosen font generating numbers that are too large for the die's face. To remedy this, you can edit the function `makeNum(number, font)`, and change the value of the line `num.scale = [8, 8, 0.05]` to reduce the first two values. Play around with the value to see what works for you. Keep the final value as 0.05, this is the depth of the stamp.
