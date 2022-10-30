@@ -23,7 +23,8 @@ if __name__ == "__main__":
     # Edit these to change font and destination
     systemFontFolderPath = "C:/Windows/Fonts" 
     chosenFontNameAndExtension = "arial.ttf" 
-    outputDestinationFolder = "G:/George/Documents/3D Prints/STL/DICE/Auto-Generated" 
+    outputDestinationFolder = "G:/George/Documents/3D Prints/STL/DICE/Auto-Generated"
+    scale = 1
     makeDX(systemFontFolderPath, chosenFontNameAndExtension, outputDestinationFolder)
 ```
 
@@ -38,4 +39,4 @@ Wherever you want to output your models, set the filepath as the value of `outpu
  
  - **Invalid Path**: Make sure whatever paths you put in the `systemFontFolderPath` and `outputDestinationFolder` are correct. If you use a backslash ('\\'), make sure to use two in order to escape the string escape character. Or just use a forward slash, like in the example paths.
  - **Font Doesn't Exist**: The chosen font set in `chosenFontNameAndExtension` must have the exact same value, i.e. the exact same capitalisation and file extension.
- - **Generated Die is Just Floating Numbers / Has Embossed Numbers**: This error is usually caused by the chosen font generating numbers that are too large for the die's face. To remedy this, you can edit the function `makeNum(number, font)`, and change the value of the line `num.scale = [8, 8, 0.05]` to reduce the first two values. Play around with the value to see what works for you. Keep the final value as 0.05, this is the depth of the stamp.
+ - **Generated Die is Just Floating Numbers / Has Embossed Numbers**: This error is usually caused by the chosen font generating numbers that are too large for the die's face. To remedy this, you can edit the value of the `scale` to change the font size. Play around with the value to see what works for you.
