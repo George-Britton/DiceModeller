@@ -10,6 +10,8 @@ def deleteDie():
     bpy.ops.object.delete()
 
 class D4:
+    def __init__(self):
+        self.scale = 1
     def pathify(self, path, name):
         splitFilepath = path.split("\\")
         newFilepath = ""
@@ -55,7 +57,7 @@ class D4:
         bpy.ops.mesh.select_all(action="SELECT")
         bpy.ops.mesh.extrude_region_move(MESH_OT_extrude_region={"use_normal_flip":False, "use_dissolve_ortho_edges":False, "mirror":False}, TRANSFORM_OT_translate={"value":(0, 0, 49.5538), "orient_type":'NORMAL', "orient_matrix":((0, -1, 0), (1, 0, -0), (0, 0, 1)), "orient_matrix_type":'NORMAL', "constraint_axis":(False, False, True), "mirror":False, "use_proportional_edit":False, "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "use_proportional_connected":False, "use_proportional_projected":False, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "gpencil_strokes":False, "cursor_transform":False, "texture_space":False, "remove_on_cancel":False, "release_confirm":False, "use_accurate":False, "use_automerge_and_split":False})
         bpy.ops.object.editmode_toggle()
-        num.scale = [8, 8, 0.05]
+        num.scale = [8 * self.scale, 8 * self.scale, 0.05]
         bpy.ops.object.origin_set(type='ORIGIN_CENTER_OF_VOLUME', center='MEDIAN')
         num.location = [0, 7, 5]
         return num
@@ -187,6 +189,8 @@ class D4:
         bpy.ops.export_mesh.stl(filepath=self.pathify(outputFolder, "D4_" + fontName.split(".")[0] + ".stl"))
     
 class D6:
+    def __init__(self):
+        self.scale = 1
     def pathify(self, path, name):
         splitFilepath = path.split("\\")
         newFilepath = ""
@@ -232,7 +236,7 @@ class D6:
         bpy.ops.mesh.select_all(action="SELECT")
         bpy.ops.mesh.extrude_region_move(MESH_OT_extrude_region={"use_normal_flip":False, "use_dissolve_ortho_edges":False, "mirror":False}, TRANSFORM_OT_translate={"value":(0, 0, 49.5538), "orient_type":'NORMAL', "orient_matrix":((0, -1, 0), (1, 0, -0), (0, 0, 1)), "orient_matrix_type":'NORMAL', "constraint_axis":(False, False, True), "mirror":False, "use_proportional_edit":False, "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "use_proportional_connected":False, "use_proportional_projected":False, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "gpencil_strokes":False, "cursor_transform":False, "texture_space":False, "remove_on_cancel":False, "release_confirm":False, "use_accurate":False, "use_automerge_and_split":False})
         bpy.ops.object.editmode_toggle()
-        num.scale = [12, 12, 0.05]
+        num.scale = [12 * self.scale, 12 * self.scale, 0.05]
         bpy.ops.object.origin_set(type='ORIGIN_CENTER_OF_VOLUME', center='MEDIAN')
         return num
 
@@ -284,6 +288,8 @@ class D6:
         bpy.ops.export_mesh.stl(filepath=self.pathify(outputFolder, "D6_" + fontName.split(".")[0] + ".stl"))
     
 class D8:
+    def __init__(self):
+        self.scale = 1
     def pathify(self, path, name):
         splitFilepath = path.split("\\")
         newFilepath = ""
@@ -329,7 +335,7 @@ class D8:
         bpy.ops.mesh.select_all(action="SELECT")
         bpy.ops.mesh.extrude_region_move(MESH_OT_extrude_region={"use_normal_flip":False, "use_dissolve_ortho_edges":False, "mirror":False}, TRANSFORM_OT_translate={"value":(0, 0, 49.5538), "orient_type":'NORMAL', "orient_matrix":((0, -1, 0), (1, 0, -0), (0, 0, 1)), "orient_matrix_type":'NORMAL', "constraint_axis":(False, False, True), "mirror":False, "use_proportional_edit":False, "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "use_proportional_connected":False, "use_proportional_projected":False, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "gpencil_strokes":False, "cursor_transform":False, "texture_space":False, "remove_on_cancel":False, "release_confirm":False, "use_accurate":False, "use_automerge_and_split":False})
         bpy.ops.object.editmode_toggle()
-        num.scale = [12, 12, 0.05]
+        num.scale = [12 * self.scale, 12 * self.scale, 0.05]
         bpy.ops.object.origin_set(type='ORIGIN_CENTER_OF_VOLUME', center='MEDIAN')
         num.location = [0, 0, 8.6]
         return num
@@ -412,6 +418,8 @@ class D8:
         bpy.ops.export_mesh.stl(filepath=self.pathify(outputFolder, "D8_" + fontName.split(".")[0] + ".stl"))
     
 class D10:
+    def __init__(self):
+        self.scale = 1
     def pathify(self, path, name):
         splitFilepath = path.split("\\")
         newFilepath = ""
@@ -457,7 +465,7 @@ class D10:
         bpy.ops.mesh.select_all(action="SELECT")
         bpy.ops.mesh.extrude_region_move(MESH_OT_extrude_region={"use_normal_flip":False, "use_dissolve_ortho_edges":False, "mirror":False}, TRANSFORM_OT_translate={"value":(0, 0, 49.5538), "orient_type":'NORMAL', "orient_matrix":((0, -1, 0), (1, 0, -0), (0, 0, 1)), "orient_matrix_type":'NORMAL', "constraint_axis":(False, False, True), "mirror":False, "use_proportional_edit":False, "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "use_proportional_connected":False, "use_proportional_projected":False, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "gpencil_strokes":False, "cursor_transform":False, "texture_space":False, "remove_on_cancel":False, "release_confirm":False, "use_accurate":False, "use_automerge_and_split":False})
         bpy.ops.object.editmode_toggle()
-        num.scale = [8, 8, 0.05]
+        num.scale = [8 * self.scale, 8 * self.scale, 0.05]
         bpy.ops.object.origin_set(type='ORIGIN_CENTER_OF_VOLUME', center='MEDIAN')
         num.location = [0, -1.5, 9]
         return num
@@ -581,6 +589,8 @@ class D10:
         bpy.ops.export_mesh.stl(filepath=self.pathify(outputFolder, "D10_" + fontName.split(".")[0] + ".stl"))
     
 class D12:
+    def __init__(self):
+        self.scale = 1
     def pathify(self, path, name):
         splitFilepath = path.split("\\")
         newFilepath = ""
@@ -626,7 +636,7 @@ class D12:
         bpy.ops.mesh.select_all(action="SELECT")
         bpy.ops.mesh.extrude_region_move(MESH_OT_extrude_region={"use_normal_flip":False, "use_dissolve_ortho_edges":False, "mirror":False}, TRANSFORM_OT_translate={"value":(0, 0, 49.5538), "orient_type":'NORMAL', "orient_matrix":((0, -1, 0), (1, 0, -0), (0, 0, 1)), "orient_matrix_type":'NORMAL', "constraint_axis":(False, False, True), "mirror":False, "use_proportional_edit":False, "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "use_proportional_connected":False, "use_proportional_projected":False, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "gpencil_strokes":False, "cursor_transform":False, "texture_space":False, "remove_on_cancel":False, "release_confirm":False, "use_accurate":False, "use_automerge_and_split":False})
         bpy.ops.object.editmode_toggle()
-        num.scale = [8, 8, 0.05]
+        num.scale = [8 * self.scale, 8 * self.scale, 0.05]
         bpy.ops.object.origin_set(type='ORIGIN_CENTER_OF_VOLUME', center='MEDIAN')
         num.location = [0, 0, 9.75]
         return num
@@ -722,6 +732,8 @@ class D12:
         bpy.ops.export_mesh.stl(filepath=self.pathify(outputFolder, "D12_" + fontName.split(".")[0] + ".stl"))
     
 class D20:
+    def __init__(self):
+        self.scale = 1
     def pathify(self, path, name):
         splitFilepath = path.split("\\")
         newFilepath = ""
@@ -767,7 +779,7 @@ class D20:
         bpy.ops.mesh.select_all(action="SELECT")
         bpy.ops.mesh.extrude_region_move(MESH_OT_extrude_region={"use_normal_flip":False, "use_dissolve_ortho_edges":False, "mirror":False}, TRANSFORM_OT_translate={"value":(0, 0, 49.5538), "orient_type":'NORMAL', "orient_matrix":((0, -1, 0), (1, 0, -0), (0, 0, 1)), "orient_matrix_type":'NORMAL', "constraint_axis":(False, False, True), "mirror":False, "use_proportional_edit":False, "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "use_proportional_connected":False, "use_proportional_projected":False, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "gpencil_strokes":False, "cursor_transform":False, "texture_space":False, "remove_on_cancel":False, "release_confirm":False, "use_accurate":False, "use_automerge_and_split":False})
         bpy.ops.object.editmode_toggle()
-        num.scale = [8, 8, 0.05]
+        num.scale = [8 * self.scale, 8 * self.scale, 0.05]
         bpy.ops.object.origin_set(type='ORIGIN_CENTER_OF_VOLUME', center='MEDIAN')
         num.location = [0, 0, 11]
         return num
@@ -981,7 +993,7 @@ class D100:
         bpy.ops.mesh.select_all(action="SELECT")
         bpy.ops.mesh.extrude_region_move(MESH_OT_extrude_region={"use_normal_flip":False, "use_dissolve_ortho_edges":False, "mirror":False}, TRANSFORM_OT_translate={"value":(0, 0, 49.5538), "orient_type":'NORMAL', "orient_matrix":((0, -1, 0), (1, 0, -0), (0, 0, 1)), "orient_matrix_type":'NORMAL', "constraint_axis":(False, False, True), "mirror":False, "use_proportional_edit":False, "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "use_proportional_connected":False, "use_proportional_projected":False, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "gpencil_strokes":False, "cursor_transform":False, "texture_space":False, "remove_on_cancel":False, "release_confirm":False, "use_accurate":False, "use_automerge_and_split":False})
         bpy.ops.object.editmode_toggle()
-        num.scale = [8, 8, 0.05]
+        num.scale = [8 * self.scale, 8 * self.scale, 0.05]
         bpy.ops.object.origin_set(type='ORIGIN_CENTER_OF_VOLUME', center='MEDIAN')
         num.location = [0, -1.5, 9]
         return num
@@ -1102,32 +1114,46 @@ class D100:
         die.select_set(True)
         bpy.ops.export_mesh.stl(filepath=self.pathify(outputFolder, "D100_" + fontName.split(".")[0] + ".stl"))
 
-def makeDSet(fontFolder, fontName, outputFolder):
+def makeDSet(fontFolder, fontName, outputFolder, in4Scale, in6Scale, in8Scale, in10Scale, in12Scale, in20Scale, in100Scale):
     d4 = D4()
+    if in4Scale != 1:
+        d4.scale = in4Scale
     d4.makeD4(fontFolder, fontName, outputFolder)
     deleteDie()
     del d4
     d6 = D6()
+    if in6Scale != 1:
+        d6.scale = in6Scale
     d6.makeD6(fontFolder, fontName, outputFolder)
     deleteDie()
     del d6
     d8 = D8()
+    if in8Scale != 1:
+        d8.scale = in8Scale
     d8.makeD8(fontFolder, fontName, outputFolder)
     deleteDie()
     del d8
     d10 = D10()
+    if in10Scale != 1:
+        d10.scale = in10Scale
     d10.makeD10(fontFolder, fontName, outputFolder)
     deleteDie()
     del d10
     d12 = D12()
+    if in12Scale != 1:
+        d12.scale = in12Scale
     d12.makeD12(fontFolder, fontName, outputFolder)
     deleteDie()
     del d12
     d20 = D20()
+    if in20Scale != 1:
+        d20.scale = in20Scale
     d20.makeD20(fontFolder, fontName, outputFolder)
     deleteDie()
     del d20
     d100 = D100()
+    if in100Scale != 1:
+        d100.scale = in100Scale
     d100.makeD100(fontFolder, fontName, outputFolder)
     deleteDie()
     del d100
@@ -1137,4 +1163,13 @@ if __name__ == "__main__":
     systemFontFolderPath = "C:/Windows/Fonts"
     chosenFontNameAndExtension = "arial.ttf"
     outputDestinationFolder = "C:/Users/geo-g/Documents/TTRPG/Dice"
-    makeDSet(systemFontFolderPath, chosenFontNameAndExtension, outputDestinationFolder)
+    # These are used to change the size of the numbers on the dice, not the dice themselves
+    d4Scale = 1
+    d6Scale = 1
+    d8Scale = 1
+    d10Scale = 1
+    d12Scale = 1
+    d20Scale = 1
+    d100Scale = 1
+    # Leave this following line alone, it's what calls for the generation
+    makeDSet(systemFontFolderPath, chosenFontNameAndExtension, outputDestinationFolder, d4Scale, d6Scale, d8Scale, d10Scale, d12Scale, d20Scale, d100Scale)
