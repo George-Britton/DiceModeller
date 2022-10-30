@@ -50,12 +50,12 @@ def makeNum(number, font):
     bpy.ops.object.editmode_toggle()
     num.scale = [8, 8, 0.05]
     bpy.ops.object.origin_set(type='ORIGIN_CENTER_OF_VOLUME', center='MEDIAN')
+    num.location = [0, 7, 5.5]
     return num
 
 def make4(font):
     #4.1
     num = makeNum(4, font)
-    num.location = [0, 7, 5]
     stamp()
     #4.2
     die = bpy.context.scene.objects["die"]
@@ -81,7 +81,6 @@ def make4(font):
 def make3(font):
     #3.1
     num = makeNum(3, font)
-    num.location = [0, 7, 5]
     stamp()
     #3.2
     die = bpy.context.scene.objects["die"]
@@ -107,7 +106,6 @@ def make3(font):
 def make2(font):
     #2.1
     num = makeNum(2, font)
-    num.location = [0, 7, 5]
     stamp()
     #2.2
     die = bpy.context.scene.objects["die"]
@@ -139,7 +137,6 @@ def make2(font):
 def make1(font):
     #1.1
     num = makeNum(1, font)
-    num.location = [0, 7, 5]
     bpy.data.objects["die"].select_set(True)
     stamp()
     #1.2

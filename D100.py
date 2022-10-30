@@ -141,7 +141,7 @@ def makeD100(fontFolder, fontName, outputFolder):
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     die.rotation_euler[0] = radians(35.7)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    make(9, font)
+    make(90, font)
     die.select_set(True)
     die.rotation_euler[0] = radians(-35.7)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
