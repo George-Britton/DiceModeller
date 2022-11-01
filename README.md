@@ -40,3 +40,14 @@ Wherever you want to output your models, set the filepath as the value of `outpu
  - **Invalid Path**: Make sure whatever paths you put in the `systemFontFolderPath` and `outputDestinationFolder` are correct. If you use a backslash ('\\'), make sure to use two in order to escape the string escape character. Or just use a forward slash, like in the example paths.
  - **Font Doesn't Exist**: The chosen font set in `chosenFontNameAndExtension` must have the exact same value, i.e. the exact same capitalisation and file extension.
  - **Generated Die is Just Floating Numbers / Has Embossed Numbers**: This error is usually caused by the chosen font generating numbers that are too large for the die's face. To remedy this, you can edit the value of the `scale` to change the font size. Play around with the value to see what works for you.
+
+----- 
+ ## F.A.Q.
+ 
+ - **Q**: Can I make my own handwriting into dice?
+ - **A**: Yep, go to [Calligraphr](calligraphr.com) and turn your handwriting into a font, then save that font to your system font folder.
+ 
+ - **Q**: What if I want dice with symbols instead of numbers?
+ - **A**: If you want to make symbols to print onto numbers, you can either:
+* Go into the file and change the value of the `make` function calls.
+* If the symbols you want aren't standard unicode symbols, you can do similarly to the previous answer and go to [Calligraphr](calligraphr.com), and put your chosen symbols in the number value slots of the faces you want printed. Then follow the previous question's instructions as normal.
