@@ -948,6 +948,8 @@ class D20:
         bpy.ops.export_mesh.stl(filepath=self.pathify(outputFolder, "D20_" + fontName.split(".")[0] + ".stl"))
     
 class D100:
+    def __init__(self):
+        self.scale = 1
     def pathify(self, path, name):
         splitFilepath = path.split("\\")
         newFilepath = ""
