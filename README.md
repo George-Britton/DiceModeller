@@ -49,5 +49,5 @@ Wherever you want to output your models, set the filepath as the value of `outpu
  
  - **Q**: What if I want dice with symbols instead of numbers?
  - **A**: If you want to make symbols to print onto numbers, you can either:
-* Go into the file and change the value of the `make` function calls.
-* If the symbols you want aren't standard unicode symbols, you can do similarly to the previous answer and go to [Calligraphr](calligraphr.com), and put your chosen symbols in the number value slots of the faces you want printed. Then follow the previous question's instructions as normal.
+    * Go into the file and change the value of the `make` function calls.
+    * If the symbols you want aren't standard unicode symbols, you can do similarly to the previous answer and go to [Calligraphr](calligraphr.com), and put your chosen symbols in the number value slots of the faces you want printed. Then follow the previous question's instructions as normal.
