@@ -55,7 +55,7 @@ def makeNum(number, font):
 
 def make(digit, font, pos):
     num = makeNum(digit, font)
-    if digit == "_":
+    if digit == "~":
         if pos:
             num.location[1] -= 3
         else:
@@ -90,7 +90,7 @@ def makeD20(fontFolder, fontName, outputFolder):
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     die.rotation_euler[0] = radians(41.8)
     make(6, font, True)
-    make("_", font, True)
+    make("~", font, True)
     die.select_set(True)
     die.rotation_euler[0] = radians(0)
     die.rotation_euler[2] = radians(-120)
@@ -207,6 +207,7 @@ def makeD20(fontFolder, fontName, outputFolder):
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     die.rotation_euler[0] = radians(-41.8)
     make(9, font, False)
+    make("~", font, False)
     die.select_set(True)
     die.rotation_euler[0] = radians(0)
     die.rotation_euler[2] = radians(-120)

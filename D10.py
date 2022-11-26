@@ -55,8 +55,8 @@ def makeNum(number, font):
 
 def make(digit, font):
     num = makeNum(digit, font)
-    if digit == "_":
-        num.location[1] -= 3
+    if digit == "~":
+        num.location[1] -= 2.5
     bpy.data.objects["die"].select_set(True)
     stamp()
     deleteNum()
@@ -150,7 +150,7 @@ def makeD10(fontFolder, fontName, outputFolder):
     die.rotation_euler[0] = radians(35.7)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     make(6, font)
-    make("_", font)
+    make("~", font)
     die.select_set(True)
     die.rotation_euler[0] = radians(-35.7)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
@@ -159,7 +159,7 @@ def makeD10(fontFolder, fontName, outputFolder):
     die.rotation_euler[0] = radians(35.7)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     make(9, font)
-    make("_", font)
+    make("~", font)
     die.select_set(True)
     die.rotation_euler[0] = radians(-35.7)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)

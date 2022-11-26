@@ -472,8 +472,8 @@ class D10:
 
     def make(self, digit, font):
         num = self.makeNum(digit, font)
-        if digit == "_":
-            num.location[1] -= 3
+        if digit == "~":
+            num.location[1] -= 2.5
         bpy.data.objects["die"].select_set(True)
         self.stamp()
         self.deleteNum()
@@ -567,7 +567,7 @@ class D10:
         die.rotation_euler[0] = radians(35.7)
         bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
         self.make(6, font)
-        self.make("_", font)
+        self.make("~", font)
         die.select_set(True)
         die.rotation_euler[0] = radians(-35.7)
         bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
@@ -576,7 +576,7 @@ class D10:
         die.rotation_euler[0] = radians(35.7)
         bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
         self.make(9, font)
-        self.make("_", font)
+        self.make("~", font)
         die.select_set(True)
         die.rotation_euler[0] = radians(-35.7)
         bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
@@ -643,8 +643,8 @@ class D12:
 
     def make(self, digit, font):
         num = self.makeNum(digit, font)
-        if digit == "_":
-            num.location[1] -= 3
+        if digit == "~":
+            num.location[1] -= 2.5
         bpy.data.objects["die"].select_set(True)
         self.stamp()
         self.deleteNum()
@@ -673,7 +673,7 @@ class D12:
         bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
         die.rotation_euler[0] = radians(63.43)
         self.make(6, font)
-        self.make("_", font)
+        self.make("~", font)
         die.select_set(True)
         die.rotation_euler[0] = 0
         die.rotation_euler[2] = radians(72)
@@ -716,7 +716,7 @@ class D12:
         bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
         die.rotation_euler[0] = radians(63.43)
         self.make(9, font)
-        self.make("_", font)
+        self.make("~", font)
         die.select_set(True)
         die.rotation_euler[0] = 0
         die.rotation_euler[2] = radians(72)
@@ -786,11 +786,11 @@ class D20:
 
     def make(self, digit, font, pos):
         num = self.makeNum(digit, font)
-        if digit == "_":
+        if digit == "~":
             if pos:
-                num.location[1] -= 3
+                num.location[1] -= 2.5
             else:
-                num.location[1] += 3
+                num.location[1] += 2.5
         if not pos:
             num.rotation_euler[2] = radians(180)
         bpy.data.objects["die"].select_set(True)
@@ -821,7 +821,7 @@ class D20:
         bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
         die.rotation_euler[0] = radians(41.8)
         self.make(6, font, True)
-        self.make("_", font, True)
+        self.make("~", font, True)
         die.select_set(True)
         die.rotation_euler[0] = radians(0)
         die.rotation_euler[2] = radians(-120)
@@ -938,6 +938,7 @@ class D20:
         bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
         die.rotation_euler[0] = radians(-41.8)
         self.make(9, font, False)
+        self.make("~", font, False) 
         die.select_set(True)
         die.rotation_euler[0] = radians(0)
         die.rotation_euler[2] = radians(-120)
@@ -1002,8 +1003,8 @@ class D100:
 
     def make(self, digit, font):
         num = self.makeNum(digit, font)
-        if digit == "_":
-            num.location[1] -= 3
+        if digit == "~":
+            num.location[1] -= 2.5
         bpy.data.objects["die"].select_set(True)
         self.stamp()
         self.deleteNum()
