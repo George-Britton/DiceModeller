@@ -103,6 +103,6 @@ if __name__ == "__main__":
     # Edit these to change font and destination
     systemFontFolderPath = "C:/Windows/Fonts"
     chosenFontNameAndExtension = "arial.ttf"
-    outputDestinationFolder = "G:/George/Documents/3D Prints/STL/DICE/Auto-Generated"
+    outputDestinationFolder = "C:/Users/geo-g/Documents/TTRPG/Dice"
     scale = 1
     makeD6(systemFontFolderPath, chosenFontNameAndExtension, outputDestinationFolder)

@@ -56,7 +56,7 @@ def makeNum(number, font):
 def make(digit, font):
     num = makeNum(digit, font)
     if digit == "~":
-        num.location[1] -= 2.5
+        num.location[1] -= scale * 3.7
     bpy.data.objects["die"].select_set(True)
     stamp()
     deleteNum()
@@ -173,6 +173,6 @@ if __name__ == "__main__":
     # Edit these to change font and destination
     systemFontFolderPath = "C:/Windows/Fonts"
     chosenFontNameAndExtension = "arial.ttf"
-    outputDestinationFolder = "G:/George/Documents/3D Prints/STL/DICE/Auto-Generated"
+    outputDestinationFolder = "C:/Users/geo-g/Documents/TTRPG/Dice"
     scale = 1
     makeD100(systemFontFolderPath, chosenFontNameAndExtension, outputDestinationFolder)

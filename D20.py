@@ -57,9 +57,9 @@ def make(digit, font, pos):
     num = makeNum(digit, font)
     if digit == "~":
         if pos:
-            num.location[1] -= 3
+            num.location[1] -= scale * 3.7
         else:
-            num.location[1] += 3
+            num.location[1] += scale * 3.7
     if not pos:
         num.rotation_euler[2] = radians(180)
     bpy.data.objects["die"].select_set(True)
@@ -221,6 +221,6 @@ if __name__ == "__main__":
     # Edit these to change font and destination
     systemFontFolderPath = "C:/Windows/Fonts"
     chosenFontNameAndExtension = "arial.ttf"
-    outputDestinationFolder = "G:/George/Documents/3D Prints/STL/DICE/Auto-Generated"
+    outputDestinationFolder = "C:/Users/geo-g/Documents/TTRPG/Dice"
     scale = 1
     makeD20(systemFontFolderPath, chosenFontNameAndExtension, outputDestinationFolder)
