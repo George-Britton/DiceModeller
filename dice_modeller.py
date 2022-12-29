@@ -3,14 +3,6 @@
 import bpy
 import os
 from math import radians
-# Import dice files
-import D4
-import D6
-import D8
-import D10
-import D12
-import D20
-import D100
 # Enable new shapes for dice
 bpy.ops.preferences.addon_enable(module="add_mesh_extra_objects")
 
