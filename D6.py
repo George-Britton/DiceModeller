@@ -32,7 +32,7 @@ def deleteNum():
     bpy.context.view_layer.objects.active = obj
     bpy.ops.object.delete()
 
-def makeNum(number, font):
+def makeNum(number, font, scale):
     bpy.ops.object.text_add(enter_editmode=False, align='WORLD', location=(0, 0, 0), scale=(1, 1, 1))
     num = bpy.context.active_object
     bpy.ops.object.editmode_toggle()
@@ -52,14 +52,14 @@ def makeNum(number, font):
     bpy.ops.object.origin_set(type='ORIGIN_CENTER_OF_VOLUME', center='MEDIAN')
     return num
 
-def make(digit, font):
-    num = makeNum(digit, font)
+def make(digit, font, scale):
+    num = makeNum(digit, font, scale)
     num.location = [0, 0, 8.6]
     bpy.data.objects["die"].select_set(True)
     stamp()
     deleteNum()
 
-def makeD6(fontFolder, fontName, outputFolder):
+def makeD6(fontFolder, fontName, outputFolder, scale):
     bpy.ops.mesh.primitive_cube_add()
     die = bpy.context.active_object
     die.name = "die"
@@ -69,34 +69,34 @@ def makeD6(fontFolder, fontName, outputFolder):
     die.scale[1] = die.scale[2]
     bpy.ops.object.transform_apply(location=False, rotation=False, scale=True)
     font = pathify(fontFolder, fontName)
-    make(6, font)
+    make(6, font, scale)
     die.rotation_euler[2] = radians(90)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     die.rotation_euler[1] = radians(-90)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    make(2, font)
+    make(2, font, scale)
     die.select_set(True)
     die.rotation_euler[2] = radians(90)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     die.rotation_euler[1] = radians(-90)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    make(4, font)
+    make(4, font, scale)
     die.select_set(True)
     die.rotation_euler[0] = radians(180)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    make(3, font)
+    make(3, font, scale)
     die.select_set(True)
     die.rotation_euler[2] = radians(-90)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     die.rotation_euler[1] = radians(90)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    make(1, font)
+    make(1, font, scale)
     die.select_set(True)
     die.rotation_euler[2] = radians(-90)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     die.rotation_euler[1] = radians(90)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    make(5, font)
+    make(5, font, scale)
     bpy.ops.export_mesh.stl(filepath=pathify(outputFolder, "D6_" + fontName.split(".")[0] + ".stl"))
 
 if __name__ == "__main__":
@@ -104,5 +104,5 @@ if __name__ == "__main__":
     systemFontFolderPath = "C:/Windows/Fonts"
     chosenFontNameAndExtension = "arial.ttf"
     outputDestinationFolder = "C:/Users/geo-g/Documents/TTRPG/Dice"
-    scale = 1
-    makeD6(systemFontFolderPath, chosenFontNameAndExtension, outputDestinationFolder)
+    numScale = 1
+    makeD6(systemFontFolderPath, chosenFontNameAndExtension, outputDestinationFolder, numScale)

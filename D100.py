@@ -32,7 +32,7 @@ def deleteNum():
     bpy.context.view_layer.objects.active = obj
     bpy.ops.object.delete()
 
-def makeNum(number, font):
+def makeNum(number, font, scale):
     bpy.ops.object.text_add(enter_editmode=False, align='WORLD', location=(0, 0, 0), scale=(1, 1, 1))
     num = bpy.context.active_object
     bpy.ops.object.editmode_toggle()
@@ -53,10 +53,8 @@ def makeNum(number, font):
     num.location = [0, -1.5, 9]
     return num
 
-def make(digit, font):
-    num = makeNum(digit, font)
-    if digit == "~":
-        num.location[1] -= scale * 3.7
+def make(digit, font, scale):
+    num = makeNum(digit, font, scale)
     bpy.data.objects["die"].select_set(True)
     stamp()
     deleteNum()
@@ -82,7 +80,7 @@ def makeShape():
     bpy.data.objects['die'].select_set(True)
     return die2
 
-def makeD100(fontFolder, fontName, outputFolder):
+def makeD100(fontFolder, fontName, outputFolder, scale):
     die = makeShape()
     die.rotation_euler[0] = radians(-54.3)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
@@ -91,7 +89,7 @@ def makeD100(fontFolder, fontName, outputFolder):
     die.scale[0] = die.scale[2]
     die.scale[1] = die.scale[2]
     font = pathify(fontFolder, fontName)
-    make(20, font)
+    make(80, font, scale)
     die.select_set(True)
     die.rotation_euler[0] = radians(-35.7)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
@@ -99,7 +97,7 @@ def makeD100(fontFolder, fontName, outputFolder):
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     die.rotation_euler[0] = radians(35.7)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    make(50, font)
+    make(30, font, scale)
     die.select_set(True)
     die.rotation_euler[0] = radians(-35.7)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
@@ -107,7 +105,7 @@ def makeD100(fontFolder, fontName, outputFolder):
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     die.rotation_euler[0] = radians(35.7)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    make(80, font)
+    make(20, font, scale)
     die.select_set(True)
     die.rotation_euler[0] = radians(-35.7)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
@@ -115,7 +113,7 @@ def makeD100(fontFolder, fontName, outputFolder):
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     die.rotation_euler[0] = radians(35.7)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    make(70, font)
+    make(90, font, scale)
     die.select_set(True)
     die.rotation_euler[0] = radians(-35.7)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
@@ -123,7 +121,7 @@ def makeD100(fontFolder, fontName, outputFolder):
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     die.rotation_euler[0] = radians(35.7)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    make("00", font)
+    make("00", font, scale)
     die.select_set(True)
     die.rotation_euler[0] = radians(180)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
@@ -133,7 +131,7 @@ def makeD100(fontFolder, fontName, outputFolder):
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     die.rotation_euler[0] = radians(35.7)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    make(40, font)
+    make(60, font, scale)
     die.select_set(True)
     die.rotation_euler[0] = radians(-35.7)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
@@ -141,7 +139,7 @@ def makeD100(fontFolder, fontName, outputFolder):
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     die.rotation_euler[0] = radians(35.7)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    make(30, font)
+    make(50, font, scale)
     die.select_set(True)
     die.rotation_euler[0] = radians(-35.7)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
@@ -149,7 +147,7 @@ def makeD100(fontFolder, fontName, outputFolder):
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     die.rotation_euler[0] = radians(35.7)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    make(60, font)
+    make(40, font, scale)
     die.select_set(True)
     die.rotation_euler[0] = radians(-35.7)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
@@ -157,7 +155,7 @@ def makeD100(fontFolder, fontName, outputFolder):
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     die.rotation_euler[0] = radians(35.7)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    make(90, font)
+    make(70, font, scale)
     die.select_set(True)
     die.rotation_euler[0] = radians(-35.7)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
@@ -165,7 +163,7 @@ def makeD100(fontFolder, fontName, outputFolder):
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     die.rotation_euler[0] = radians(35.7)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    make(10, font)
+    make(10, font, scale)
     die.select_set(True)
     bpy.ops.export_mesh.stl(filepath=pathify(outputFolder, "D100_" + fontName.split(".")[0] + ".stl"))
 
@@ -174,5 +172,5 @@ if __name__ == "__main__":
     systemFontFolderPath = "C:/Windows/Fonts"
     chosenFontNameAndExtension = "arial.ttf"
     outputDestinationFolder = "C:/Users/geo-g/Documents/TTRPG/Dice"
-    scale = 1
-    makeD100(systemFontFolderPath, chosenFontNameAndExtension, outputDestinationFolder)
+    numScale = 1
+    makeD100(systemFontFolderPath, chosenFontNameAndExtension, outputDestinationFolder, numScale)

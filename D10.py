@@ -32,7 +32,7 @@ def deleteNum():
     bpy.context.view_layer.objects.active = obj
     bpy.ops.object.delete()
 
-def makeNum(number, font):
+def makeNum(number, font, scale):
     bpy.ops.object.text_add(enter_editmode=False, align='WORLD', location=(0, 0, 0), scale=(1, 1, 1))
     num = bpy.context.active_object
     bpy.ops.object.editmode_toggle()
@@ -53,10 +53,10 @@ def makeNum(number, font):
     num.location = [0, -1.5, 9]
     return num
 
-def make(digit, font):
-    num = makeNum(digit, font)
+def make(digit, font, scale):
+    num = makeNum(digit, font, scale)
     if digit == "~":
-        num.location[1] -= scale * 3.7
+        num.location[1] -= scale * 3
     bpy.data.objects["die"].select_set(True)
     stamp()
     deleteNum()
@@ -82,7 +82,7 @@ def makeShape():
     bpy.data.objects['die'].select_set(True)
     return die2
 
-def makeD10(fontFolder, fontName, outputFolder):
+def makeD10(fontFolder, fontName, outputFolder, scale):
     die = makeShape()
     die.rotation_euler[0] = radians(-54.3)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
@@ -91,7 +91,7 @@ def makeD10(fontFolder, fontName, outputFolder):
     die.scale[0] = die.scale[2]
     die.scale[1] = die.scale[2]
     font = pathify(fontFolder, fontName)
-    make(2, font)
+    make(8, font, scale)
     die.select_set(True)
     die.rotation_euler[0] = radians(-35.7)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
@@ -99,7 +99,7 @@ def makeD10(fontFolder, fontName, outputFolder):
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     die.rotation_euler[0] = radians(35.7)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    make(5, font)
+    make(3, font, scale)
     die.select_set(True)
     die.rotation_euler[0] = radians(-35.7)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
@@ -107,7 +107,7 @@ def makeD10(fontFolder, fontName, outputFolder):
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     die.rotation_euler[0] = radians(35.7)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    make(8, font)
+    make(2, font, scale)
     die.select_set(True)
     die.rotation_euler[0] = radians(-35.7)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
@@ -115,7 +115,8 @@ def makeD10(fontFolder, fontName, outputFolder):
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     die.rotation_euler[0] = radians(35.7)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    make(7, font)
+    make(9, font, scale)
+    make("~", font, scale)
     die.select_set(True)
     die.rotation_euler[0] = radians(-35.7)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
@@ -123,7 +124,7 @@ def makeD10(fontFolder, fontName, outputFolder):
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     die.rotation_euler[0] = radians(35.7)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    make(0, font)
+    make(0, font, scale)
     die.select_set(True)
     die.rotation_euler[0] = radians(180)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
@@ -133,7 +134,8 @@ def makeD10(fontFolder, fontName, outputFolder):
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     die.rotation_euler[0] = radians(35.7)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    make(4, font)
+    make(6, font, scale)
+    make("~", font, scale)
     die.select_set(True)
     die.rotation_euler[0] = radians(-35.7)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
@@ -141,7 +143,7 @@ def makeD10(fontFolder, fontName, outputFolder):
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     die.rotation_euler[0] = radians(35.7)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    make(3, font)
+    make(5, font, scale)
     die.select_set(True)
     die.rotation_euler[0] = radians(-35.7)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
@@ -149,8 +151,7 @@ def makeD10(fontFolder, fontName, outputFolder):
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     die.rotation_euler[0] = radians(35.7)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    make(6, font)
-    make("~", font)
+    make(4, font, scale)
     die.select_set(True)
     die.rotation_euler[0] = radians(-35.7)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
@@ -158,8 +159,7 @@ def makeD10(fontFolder, fontName, outputFolder):
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     die.rotation_euler[0] = radians(35.7)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    make(9, font)
-    make("~", font)
+    make(7, font, scale)
     die.select_set(True)
     die.rotation_euler[0] = radians(-35.7)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
@@ -167,7 +167,7 @@ def makeD10(fontFolder, fontName, outputFolder):
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     die.rotation_euler[0] = radians(35.7)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
-    make(1, font)
+    make(1, font, scale)
     die.select_set(True)
     bpy.ops.export_mesh.stl(filepath=pathify(outputFolder, "D10_" + fontName.split(".")[0] + ".stl"))
     
@@ -176,5 +176,5 @@ if __name__ == "__main__":
     systemFontFolderPath = "C:/Windows/Fonts"
     chosenFontNameAndExtension = "arial.ttf"
     outputDestinationFolder = "C:/Users/geo-g/Documents/TTRPG/Dice"
-    scale = 1
-    makeD10(systemFontFolderPath, chosenFontNameAndExtension, outputDestinationFolder)
+    numScale = 1
+    makeD10(systemFontFolderPath, chosenFontNameAndExtension, outputDestinationFolder, numScale)

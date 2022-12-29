@@ -32,7 +32,7 @@ def deleteNum():
     bpy.context.view_layer.objects.active = obj
     bpy.ops.object.delete()
 
-def makeNum(number, font):
+def makeNum(number, font, scale):
     bpy.ops.object.text_add(enter_editmode=False, align='WORLD', location=(0, 0, 0), scale=(1, 1, 1))
     num = bpy.context.active_object
     bpy.ops.object.editmode_toggle()
@@ -53,9 +53,9 @@ def makeNum(number, font):
     num.location = [0, 7, 5.5]
     return num
 
-def make4(font):
+def make4(font, scale):
     #4.1
-    num = makeNum(4, font)
+    num = makeNum(4, font, scale)
     stamp()
     #4.2
     die = bpy.context.scene.objects["die"]
@@ -78,9 +78,9 @@ def make4(font):
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     deleteNum()
 
-def make3(font):
+def make3(font, scale):
     #3.1
-    num = makeNum(3, font)
+    num = makeNum(3, font, scale)
     stamp()
     #3.2
     die = bpy.context.scene.objects["die"]
@@ -103,9 +103,9 @@ def make3(font):
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     deleteNum()
 
-def make2(font):
+def make2(font, scale):
     #2.1
-    num = makeNum(2, font)
+    num = makeNum(2, font, scale)
     stamp()
     #2.2
     die = bpy.context.scene.objects["die"]
@@ -134,9 +134,9 @@ def make2(font):
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     deleteNum()
 
-def make1(font):
+def make1(font, scale):
     #1.1
-    num = makeNum(1, font)
+    num = makeNum(1, font, scale)
     bpy.data.objects["die"].select_set(True)
     stamp()
     #1.2
@@ -158,7 +158,7 @@ def make1(font):
     stamp()
     deleteNum()
 
-def makeD4(fontFolder, fontName, outputFolder):
+def makeD4(fontFolder, fontName, outputFolder, scale):
     bpy.ops.mesh.primitive_solid_add()
     die = bpy.context.active_object
     die.name = "die"
@@ -173,10 +173,10 @@ def makeD4(fontFolder, fontName, outputFolder):
     die.rotation_euler[1] = radians(180)
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     font = pathify(fontFolder, fontName)
-    make4(font)
-    make3(font)
-    make2(font)
-    make1(font)
+    make4(font, scale)
+    make3(font, scale)
+    make2(font, scale)
+    make1(font, scale)
     bpy.ops.export_mesh.stl(filepath=pathify(outputFolder, "D4_" + fontName.split(".")[0] + ".stl"))
 
 if __name__ == "__main__":
@@ -184,5 +184,5 @@ if __name__ == "__main__":
     systemFontFolderPath = "C:/Windows/Fonts"
     chosenFontNameAndExtension = "arial.ttf"
     outputDestinationFolder = "C:/Users/geo-g/Documents/TTRPG/Dice"
-    scale = 1
-    makeD4(systemFontFolderPath, chosenFontNameAndExtension, outputDestinationFolder)
+    numScale = 1
+    makeD4(systemFontFolderPath, chosenFontNameAndExtension, outputDestinationFolder, numScale)
