@@ -3,6 +3,7 @@ import bpy
 from math import radians
 bpy.ops.preferences.addon_enable(module = "add_mesh_extra_objects")
 
+
 def pathify(path, name):
     splitFilepath = path.split("\\")
     newFilepath = ""
@@ -15,7 +16,8 @@ def pathify(path, name):
         newFilepath = newFilepath[0:-1]
     newFilepath += name
     return newFilepath
-    
+
+
 def stamp():
     obj = bpy.context.scene.objects["die"]
     bpy.data.objects['Text'].select_set(False)
@@ -25,12 +27,14 @@ def stamp():
     bpy.context.object.modifiers["Boolean"].object = bpy.data.objects["Text"]
     bpy.ops.object.modifier_apply(modifier = "Boolean")
 
+
 def deleteNum():
     obj = bpy.context.scene.objects["Text"]
     bpy.data.objects['die'].select_set(False)
     obj.select_set(True)
     bpy.context.view_layer.objects.active = obj
     bpy.ops.object.delete()
+
 
 def makeNum(number, font, scale):
     bpy.ops.object.text_add(enter_editmode = False, align = 'WORLD', location = (0, 0, 0), scale = (1, 1, 1))
@@ -52,12 +56,14 @@ def makeNum(number, font, scale):
     bpy.ops.object.origin_set(type = 'ORIGIN_CENTER_OF_VOLUME', center = 'MEDIAN')
     return num
 
+
 def make(digit, font, scale):
     num = makeNum(digit, font, scale)
     num.location = [0, 0, 8.6]
     bpy.data.objects["die"].select_set(True)
     stamp()
     deleteNum()
+
 
 def makeD6(fontFolder, fontName, outputFolder, scale):
     bpy.ops.mesh.primitive_cube_add()
@@ -98,6 +104,7 @@ def makeD6(fontFolder, fontName, outputFolder, scale):
     bpy.ops.object.transform_apply(location = False, rotation = True, scale = False)
     make(5, font, scale)
     bpy.ops.export_mesh.stl(filepath=pathify(outputFolder, "D6_" + fontName.split(".")[0] + ".stl"))
+
 
 if __name__ == "__main__":
     # Edit these to change font and destination

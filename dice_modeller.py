@@ -2,6 +2,14 @@
 # Import basic system modules
 import bpy
 import os
+# Import dice modules
+import D4
+import D6
+import D8
+import D10
+import D12
+import D20
+import D100
 from math import radians
 # Enable new shapes for dice
 bpy.ops.preferences.addon_enable(module="add_mesh_extra_objects")
@@ -18,7 +26,7 @@ bl_info = {
     "doc_url": "https://github.com/George-Britton/DiceModeller"
     "tracker_url": "",
     "support": "TESTING",
-    "category": "Mesh",
+    "category": "Add Mesh",
 }
 
 # Deletes the die in the scene

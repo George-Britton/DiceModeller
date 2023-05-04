@@ -3,6 +3,7 @@ import bpy
 from math import radians
 bpy.ops.preferences.addon_enable(module = "add_mesh_extra_objects")
 
+
 def pathify(path, name):
     splitFilepath = path.split("\\")
     newFilepath = ""
@@ -15,7 +16,8 @@ def pathify(path, name):
         newFilepath = newFilepath[0:-1]
     newFilepath += name
     return newFilepath
-    
+
+
 def stamp():
     obj = bpy.context.scene.objects["die"]
     bpy.data.objects['Text'].select_set(False)
@@ -25,12 +27,14 @@ def stamp():
     bpy.context.object.modifiers["Boolean"].object = bpy.data.objects["Text"]
     bpy.ops.object.modifier_apply(modifier = "Boolean")
 
+
 def deleteNum():
     obj = bpy.context.scene.objects["Text"]
     bpy.data.objects['die'].select_set(False)
     obj.select_set(True)
     bpy.context.view_layer.objects.active = obj
     bpy.ops.object.delete()
+
 
 def makeNum(number, font, scale):
     bpy.ops.object.text_add(enter_editmode = False, align = 'WORLD', location = (0, 0, 0), scale = (1, 1, 1))
@@ -52,6 +56,7 @@ def makeNum(number, font, scale):
     bpy.ops.object.origin_set(type = 'ORIGIN_CENTER_OF_VOLUME', center='MEDIAN')
     num.location = [0, 7, 5.5]
     return num
+
 
 def make4(font, scale):
     #4.1
@@ -78,6 +83,7 @@ def make4(font, scale):
     bpy.ops.object.transform_apply(location = False, rotation = True, scale = False)
     deleteNum()
 
+
 def make3(font, scale):
     #3.1
     num = makeNum(3, font, scale)
@@ -102,6 +108,7 @@ def make3(font, scale):
     die.rotation_euler[2] = radians(-120)
     bpy.ops.object.transform_apply(location = False, rotation = True, scale = False)
     deleteNum()
+
 
 def make2(font, scale):
     #2.1
@@ -134,6 +141,7 @@ def make2(font, scale):
     bpy.ops.object.transform_apply(location = False, rotation = True, scale = False)
     deleteNum()
 
+
 def make1(font, scale):
     #1.1
     num = makeNum(1, font, scale)
@@ -158,6 +166,7 @@ def make1(font, scale):
     stamp()
     deleteNum()
 
+
 def makeD4(fontFolder, fontName, outputFolder, scale):
     bpy.ops.mesh.primitive_solid_add()
     die = bpy.context.active_object
@@ -178,6 +187,7 @@ def makeD4(fontFolder, fontName, outputFolder, scale):
     make2(font, scale)
     make1(font, scale)
     bpy.ops.export_mesh.stl(filepath=pathify(outputFolder, "D4_" + fontName.split(".")[0] + ".stl"))
+
 
 if __name__ == "__main__":
     # Edit these to change font and destination

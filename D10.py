@@ -3,6 +3,7 @@ import bpy
 from math import radians
 bpy.ops.preferences.addon_enable(module = "add_mesh_extra_objects")
 
+
 def pathify(path, name):
     splitFilepath = path.split("\\")
     newFilepath = ""
@@ -15,7 +16,8 @@ def pathify(path, name):
         newFilepath = newFilepath[0:-1]
     newFilepath += name
     return newFilepath
-    
+
+
 def stamp():
     obj = bpy.context.scene.objects["die"]
     bpy.data.objects['Text'].select_set(False)
@@ -25,12 +27,14 @@ def stamp():
     bpy.context.object.modifiers["Boolean"].object = bpy.data.objects["Text"]
     bpy.ops.object.modifier_apply(modifier = "Boolean")
 
+
 def deleteNum():
     obj = bpy.context.scene.objects["Text"]
     bpy.data.objects['die'].select_set(False)
     obj.select_set(True)
     bpy.context.view_layer.objects.active = obj
     bpy.ops.object.delete()
+
 
 def makeNum(number, font, scale):
     bpy.ops.object.text_add(enter_editmode = False, align = 'WORLD', location = (0, 0, 0), scale = (1, 1, 1))
@@ -53,6 +57,7 @@ def makeNum(number, font, scale):
     num.location = [0, -1.5, 9]
     return num
 
+
 def make(digit, font, scale):
     num = makeNum(digit, font, scale)
     if digit == "~":
@@ -60,6 +65,7 @@ def make(digit, font, scale):
     bpy.data.objects["die"].select_set(True)
     stamp()
     deleteNum()
+
 
 def makeShape():
     bpy.ops.mesh.primitive_cone_add(vertices = 5, radius1 = 2, radius2 = 0, depth = 2.25, enter_editmode = False, align = 'WORLD', location = (0, 0, 0), scale = (1, 1, 1))
@@ -81,6 +87,7 @@ def makeShape():
     bpy.ops.object.delete()
     bpy.data.objects['die'].select_set(True)
     return die2
+
 
 def makeD10(fontFolder, fontName, outputFolder, scale):
     die = makeShape()
@@ -170,7 +177,8 @@ def makeD10(fontFolder, fontName, outputFolder, scale):
     make(1, font, scale)
     die.select_set(True)
     bpy.ops.export_mesh.stl(filepath=pathify(outputFolder, "D10_" + fontName.split(".")[0] + ".stl"))
-    
+
+
 if __name__ == "__main__":
     # Edit these to change font and destination
     systemFontFolderPath = "C:/Windows/Fonts"

@@ -10,7 +10,7 @@ bl_info = {
     "doc_url": "https://github.com/George-Britton/DiceModeller"
     "tracker_url": "",
     "support": "TESTING",
-    "category": "Mesh",
+    "category": "Add Mesh",
 }
 
 if "bpy" in locals():
