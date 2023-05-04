@@ -131,7 +131,7 @@ class FolderSelectBrowseFolderOperator(bpy.types.Operator):
 def dice_modeller(D4, D6, D8, D10, D12, D20, D100, D4Scale, D6Scale, D8Scale, D10Scale, D12Scale, D20Scale, D100Scale, folder, font):
     # Derive the font folder and name from the input font path
     fontName = font.split(".")[-2].split("\\")[-1].split("/")[-1] + font[-4:]
-    fontFolder = font[0:-(len(fontName) + 1)]
+    fontFolder = font[0: -(len(fontName) + 1)]
     # Create the D4
     if D4:
         D4.makeD4(fontFolder, fontName, outputFolder, D4Scale)
@@ -169,24 +169,24 @@ def register():
     bpy.utils.register_class(FontSelectBrowseFontOperator)
     bpy.utils.register_class(FolderSelectBrowseFolderOperator)
     # Register checkboxes
-    bpy.types.Scene.D4 = bpy.props.BoolProperty(name="D4", default=True)
-    bpy.types.Scene.D6 = bpy.props.BoolProperty(name="D6", default=True)
-    bpy.types.Scene.D8 = bpy.props.BoolProperty(name="D8", default=True)
-    bpy.types.Scene.D10 = bpy.props.BoolProperty(name="D10", default=True)
-    bpy.types.Scene.D12 = bpy.props.BoolProperty(name="D12", default=True)
-    bpy.types.Scene.D20 = bpy.props.BoolProperty(name="D20", default=True)
-    bpy.types.Scene.D100 = bpy.props.BoolProperty(name="D100", default=True)
+    bpy.types.Scene.D4 = bpy.props.BoolProperty(name = "D4", default = True)
+    bpy.types.Scene.D6 = bpy.props.BoolProperty(name = "D6", default = True)
+    bpy.types.Scene.D8 = bpy.props.BoolProperty(name = "D8", default = True)
+    bpy.types.Scene.D10 = bpy.props.BoolProperty(name = "D10", default = True)
+    bpy.types.Scene.D12 = bpy.props.BoolProperty(name = "D12", default = True)
+    bpy.types.Scene.D20 = bpy.props.BoolProperty(name = "D20", default = True)
+    bpy.types.Scene.D100 = bpy.props.BoolProperty(name = "D100", default = True)
     # Register scale floats
-    bpy.types.Scene.D4Scale = bpy.props.FloatProperty(name="Scale", default=1.0, min=0.01)
-    bpy.types.Scene.D6Scale = bpy.props.FloatProperty(name="Scale", default=1.0, min=0.01)
-    bpy.types.Scene.D8Scale = bpy.props.FloatProperty(name="Scale", default=1.0, min=0.01)
-    bpy.types.Scene.D10Scale = bpy.props.FloatProperty(name="Scale", default=1.0, min=0.01)
-    bpy.types.Scene.D12Scale = bpy.props.FloatProperty(name="Scale", default=1.0, min=0.01)
-    bpy.types.Scene.D20Scale = bpy.props.FloatProperty(name="Scale", default=1.0, min=0.01)
-    bpy.types.Scene.D100Scale = bpy.props.FloatProperty(name="Scale", default=1.0, min=0.01)
+    bpy.types.Scene.D4Scale = bpy.props.FloatProperty(name = "Scale", default = 1.0, min = 0.01)
+    bpy.types.Scene.D6Scale = bpy.props.FloatProperty(name = "Scale", default = 1.0, min = 0.01)
+    bpy.types.Scene.D8Scale = bpy.props.FloatProperty(name = "Scale", default = 1.0, min = 0.01)
+    bpy.types.Scene.D10Scale = bpy.props.FloatProperty(name = "Scale", default = 1.0, min = 0.01)
+    bpy.types.Scene.D12Scale = bpy.props.FloatProperty(name = "Scale", default = 1.0, min = 0.01)
+    bpy.types.Scene.D20Scale = bpy.props.FloatProperty(name = "Scale", default = 1.0, min = 0.01)
+    bpy.types.Scene.D100Scale = bpy.props.FloatProperty(name = "Scale", default = 1.0, min = 0.01)
     # Register font and export fields
-    bpy.types.Scene.folder_select_path = bpy.props.StringProperty(name="Folder", default=os.path.expanduser('~\\'), subtype='DIR_PATH')
-    bpy.types.Scene.font_select_path = bpy.props.StringProperty(name="Font", default="C:\\Windows\\Fonts\\arial.ttf", subtype='FILE_PATH')
+    bpy.types.Scene.folder_select_path = bpy.props.StringProperty(name = "Folder", default = s.path.expanduser('~\\'), subtype = 'DIR_PATH')
+    bpy.types.Scene.font_select_path = bpy.props.StringProperty(name = "Font", default = "C:\\Windows\\Fonts\\arial.ttf", subtype = 'FILE_PATH')
     
 def unregister():
     # Unregister classes
