@@ -3,7 +3,7 @@
   
 <p align="center"><h1>Dice Modeller</h1></p> 
 <p align="center"><h2>Work in progress</h2></p>
-<p align="center"><h3>For now use the code in **dice_modeller.py** in a text editor window of Blender</h3></p>
+<p align="center"><h3>For now use the code in dice_modeller.py in a text editor window of Blender</h3></p>
  <!-- markdownlint-enable MD033 --> 
 
   
