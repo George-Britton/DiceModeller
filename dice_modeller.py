@@ -2,6 +2,7 @@
 # Import basic system modules
 import bpy
 import os
+
 # Import dice modules
 import D4
 import D6
@@ -11,6 +12,7 @@ import D12
 import D20
 import D100
 from math import radians
+
 # Enable new shapes for dice
 bpy.ops.preferences.addon_enable(module="add_mesh_extra_objects")
 

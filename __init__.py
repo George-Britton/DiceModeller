@@ -41,7 +41,6 @@ def register():
     dice_modeller.register()
 
 
-
 def unregister():
     dice_modeller.unregister()
 
