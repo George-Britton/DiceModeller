@@ -195,7 +195,7 @@ def register():
     bpy.types.Scene.D20Scale = bpy.props.FloatProperty(name = "Scale", default = 1.0, min = 0.01)
     bpy.types.Scene.D100Scale = bpy.props.FloatProperty(name = "Scale", default = 1.0, min = 0.01)
     # Register font and export fields
-    bpy.types.Scene.folder_select_path = bpy.props.StringProperty(name = "Folder", default = s.path.expanduser('~\\'), subtype = 'DIR_PATH')
+    bpy.types.Scene.folder_select_path = bpy.props.StringProperty(name = "Folder", default = os.path.expanduser('~\\'), subtype = 'DIR_PATH')
     bpy.types.Scene.font_select_path = bpy.props.StringProperty(name = "Font", default = "C:\\Windows\\Fonts\\arial.ttf", subtype = 'FILE_PATH')
     
 def unregister():
