@@ -15,7 +15,7 @@ def makeDSet(fontFolder, fontName, outputFolder, in4Scale, in6Scale, in8Scale, i
     # Create the D4
     if in4Scale > 0:
         import D4
-        D4.makeD4(fontFolder, fontName, outputFolder in4Scale)
+        D4.makeD4(fontFolder, fontName, outputFolder, in4Scale)
         deleteDie()
     # Create the D6
     if in6Scale > 0:
