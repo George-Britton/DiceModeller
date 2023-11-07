@@ -25,7 +25,7 @@ bl_info = {
     "blender": (2, 93, 1),
     "location": "View3D > UI > Dice",
     "warning": "",
-    "doc_url": "https://github.com/George-Britton/DiceModeller"
+    "doc_url": "https://github.com/George-Britton/DiceModeller", # thanks for the tip @girrrrrrr2
     "tracker_url": "",
     "support": "TESTING",
     "category": "Add Mesh",
